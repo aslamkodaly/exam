@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './Components/Navbar'
+import Viewstudent from './Components/Viewstudent'
+import Addbooks from './Components/Add'
+const Addbooks = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Viewstudent />}></Route>
+        <Route path='/add' element={<AddStudent data={{ id: '', name: '', grade: '' }}
+          method="post" />} />
+
+        {/* <Route path='/' element={<Addstudent/>}
+></Route>   */}
+      </Routes>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default Addbooks
